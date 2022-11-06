@@ -288,7 +288,7 @@ create_linode() {
 }
 
 #删除linode机器
- 
+del_linode() {
     read -e -p "请输入需要删除机器的id号：" id
     read -e -p "是否需要删除id为 ${id} (默认: N 取消)：" info
         [[ -z ${info} ]] && info="n"
