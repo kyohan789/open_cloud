@@ -37,7 +37,7 @@ read -p " 请输入数字 :" num
 linode_menu() {
     clear
   echo && echo -e "Linode 云服务开机脚本${Red_font_prefix} 开源免费 无加密代码${Font_color_suffix} ${Green_font_prefix}from @openccloud${Font_color_suffix}
-项目地址：${Red_font_prefix}https://github.com/LG-leige/open_cloud${Font_color_suffix}
+项目地址：${Red_font_prefix}https://github.com/kyohan789/open_cloud${Font_color_suffix}
  ${Green_font_prefix}1.${Font_color_suffix} 一键全部API测活
  ${Green_font_prefix}2.${Font_color_suffix} 查询机器信息
  ${Green_font_prefix}3.${Font_color_suffix} 创建机器
@@ -75,7 +75,7 @@ read -p " 请输入数字 :" num
     del_api_linode
     ;;
     98)
-    bash <(curl -Ls https://raw.githubusercontent.com/LG-leige/open_cloud/main/opencloud.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/kyohan789/open_cloud/main/opencloud.sh)
     ;;
     99)
     exit 1
@@ -205,7 +205,7 @@ Information_user_linode() {
 
 #linnode服务器位置
 region_linode(){
-    json=`cat <(curl -Ls https://raw.githubusercontent.com/LG-leige/open_cloud/main/linode/region)`
+    json=`cat <(curl -Ls https://raw.githubusercontent.com/kyohan789/open_cloud/main/linode/region)`
     o=`echo $json| jq ".opencloud | length"`
     
     i=-1
@@ -222,7 +222,7 @@ region_linode(){
 
 #linode服务器镜像
 image_linode(){
-    json=`cat <(curl -Ls https://raw.githubusercontent.com/LG-leige/open_cloud/main/linode/image)`
+    json=`cat <(curl -Ls https://raw.githubusercontent.com/kyohan789/open_cloud/main/linode/image)`
     o=`echo $json| jq ".opencloud | length"`
     
     i=-1
@@ -238,7 +238,7 @@ image_linode(){
 
 #linode服务器大小
 size_linode(){
-    json=`cat <(curl -Ls https://raw.githubusercontent.com/LG-leige/open_cloud/main/linode/size)`
+    json=`cat <(curl -Ls https://raw.githubusercontent.com/kyohan789/open_cloud/main/linode/size)`
     o=`echo $json| jq ".opencloud | length"`
     
     i=-1
