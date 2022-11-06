@@ -151,6 +151,26 @@ Information_vps_linode() {
     linode_loop_script
 }
 
+#查询linode机器信息
+Information_vps_linode2() {
+   check_api_linode
+    read -p "你需要查询的api名称:" api_name
+        TOKEN=`cat ${file_path}/linode/${api_name}`
+        
+    json=`curl -s -H "Authorization: Bearer $TOKEN" \
+        https://api.linode.com/v4/linode/instances`
+      
+    clear  
+    total=`echo $json | jq -r '.results'`
+    echo "查询结果为空代表 账号下没有任何机器 或者 账号已经失效了"
+    i=-1
+    while ((i < ("${total}" - "1" )))
+    do
+        ((i++))
+        echo "  机器ID："`echo $json | jq '.data['${i}'].id'``echo "  机器ipv4："``echo $json | jq '.data['${i}'].ipv4'``echo -e "\n"`
+    done
+}
+
 #linode检查账号是否存存活
 Check_liveness_linode(){
     check_api_linode
@@ -288,7 +308,7 @@ create_linode() {
 
 #删除linode机器
 del_linode() {
-    Information_vps_linode
+    Information_vps_linode2
     read -e -p "请输入需要删除机器的id号：" id
     read -e -p "是否需要删除id为 ${id} (默认: N 取消)：" info
         [[ -z ${info} ]] && info="n"
