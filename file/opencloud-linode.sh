@@ -164,8 +164,12 @@ Check_liveness_linode(){
     var1=`echo $json | jq -r '.email'`
     var2=`echo $json | jq -r '.active_promotions[0].credit_remaining'`
     
-    if [[ ${var2} == "null" ]];then
+    if [[ $json =~ "active_since" ]];then
         create_linode
+    elif [[ $json =~ "Invalid Token" ]];then
+        echo -e  "获取失败：令牌无效"
+        sleep 2s
+        linode_menu
     else
         echo -e  "检测到该API存在问题，无法创建服务器！（2秒后返回）"
         sleep 2s
