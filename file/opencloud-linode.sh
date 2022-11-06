@@ -288,30 +288,7 @@ create_linode() {
 }
 
 #删除linode机器
-del_linode() {
-    Information_vps_linode
-    DIGITALOCEAN_TOKEN=`cat ${file_path}/linode/${api_name}`
-    
-    json=`curl -s -X GET \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
-    "https://api.digitalocean.com/v2/droplets"`
-    total=`echo $json | jq -r '.meta.total'`
-    clear
-    i=-1
-    while ((i < ("${total}" - "1" )))
-    do
-        ((i++))
-        echo "机器ID："
-        echo $json | jq '.droplets['${i}'].id'
-        echo "机器名字："
-        echo $json | jq '.droplets['${i}'].name'
-        echo "机器IP："
-        echo $json | jq '.droplets['${i}'].networks.v4[0].ip_address'
-        echo $json | jq '.droplets['${i}'].networks.v4[1].ip_address'
-        echo -e "\n"
-    done
-    
+ 
     read -e -p "请输入需要删除机器的id号：" id
     read -e -p "是否需要删除id为 ${id} (默认: N 取消)：" info
         [[ -z ${info} ]] && info="n"
