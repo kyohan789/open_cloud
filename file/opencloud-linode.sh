@@ -147,7 +147,7 @@ Information_vps_linode() {
     while ((i < ("${total}" - "1" )))
     do
         ((i++))
-        echo -e "机器ID：`echo $json | jq '.data['${i}'].id'` `echo $json | jq '.data['${i}'].ipv4'`\n"
+        echo -e "机器ID：`echo $json | jq '.data['${i}'].id'`————IP：`$json | jq '.data['${i}'].ipv4'`\n"
     done 
     linode_loop_script
 }
@@ -164,12 +164,8 @@ Check_liveness_linode(){
     var1=`echo $json | jq -r '.email'`
     var2=`echo $json | jq -r '.active_promotions[0].credit_remaining'`
     
-    if [[ $json =~ "active_since" ]];then
+    if [[ ${var2} == "null" ]];then
         create_linode
-    elif [[ $json =~ "Invalid Token" ]];then
-        echo -e  "获取失败：令牌无效"
-        sleep 2s
-        linode_menu
     else
         echo -e  "检测到该API存在问题，无法创建服务器！（2秒后返回）"
         sleep 2s
