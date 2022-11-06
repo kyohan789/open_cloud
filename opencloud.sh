@@ -11,7 +11,7 @@ Tip="${Green_font_prefix}[注意]${Font_color_suffix}"
 file_path="/root/opencloud"
 #安装aws cli
 install_aws_EC2_cli(){
-    curl -s "https://raw.githubusercontent.com/LG-leige/open_cloud/main/file/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    curl -s "https://raw.githubusercontent.com/kyohan789/open_cloud/main/file/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
     unzip awscliv2.zip
     sudo ./aws/install
     ./aws/install -i /usr/local/aws-cli -b /usr/local/bin
@@ -46,7 +46,7 @@ initialization(){
 start_menu() {
   clear
   echo && echo -e "云服务开机脚本${Red_font_prefix} 开源免费 无加密代码${Font_color_suffix} ${Green_font_prefix}from @openccloud${Font_color_suffix}
-项目地址：${Red_font_prefix}https://github.com/LG-leige/open_cloud${Font_color_suffix}
+项目地址：${Red_font_prefix}https://github.com/kyohan789/open_cloud${Font_color_suffix}
  ${Green_font_prefix}1.${Font_color_suffix} Digitalocean 
  ${Green_font_prefix}2.${Font_color_suffix} Linode
  ${Green_font_prefix}3.${Font_color_suffix} Vultr
@@ -58,19 +58,19 @@ start_menu() {
 read -p " 请输入数字 :" num
   case "$num" in
     1)
-    bash <(curl -Ls https://raw.githubusercontent.com/LG-leige/open_cloud/main/file/opencloud-digitalocean.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/kyohan789/open_cloud/main/file/opencloud-digitalocean.sh)
     ;;
     2)
-    bash <(curl -Ls https://raw.githubusercontent.com/LG-leige/open_cloud/main/file/opencloud-linode.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/kyohan789/open_cloud/main/file/opencloud-linode.sh)
     ;;
     3)
     echo "目前处于开发阶段，请稍等！"
     ;;
     4)
-    bash <(curl -Ls https://raw.githubusercontent.com/LG-leige/open_cloud/main/file/opencloud-Azure.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/kyohan789/open_cloud/main/file/opencloud-Azure.sh)
     ;;
     5)
-    bash <(curl -Ls https://raw.githubusercontent.com/LG-leige/open_cloud/main/file/opencloud-aws-ec2.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/kyohan789/open_cloud/main/file/opencloud-aws-ec2.sh)
     ;;
     99)
     exit 1
