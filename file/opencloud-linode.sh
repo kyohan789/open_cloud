@@ -147,7 +147,7 @@ Information_vps_linode() {
     while ((i < ("${total}" - "1" )))
     do
         ((i++))
-        echo -e "机器ID：`echo $json | jq '.data['${i}'].id'`————IP：`$json | jq '.data['${i}'].ipv4'`\n"
+        echo -e "机器ID：`echo $json | jq '.data['${i}'].id'``echo ————IP：$json | jq '.data['${i}'].ipv4'`\n"
     done 
     linode_loop_script
 }
