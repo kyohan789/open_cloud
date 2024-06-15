@@ -172,8 +172,6 @@ sudo service sshd restart;" > ${file_path}/userdata
                 "user_data":"'"$(cat ${file_path}/userdata)"'"
              }' \
              https://api.digitalocean.com/v2/droplets`
-            echo $json
-            echo $(cat ${file_path}/userdata)
             rm -rf ${file_path}/userdata
            var1=`echo $json | jq -r '.droplet.id'`
            echo ""
@@ -182,7 +180,6 @@ sudo service sshd restart;" > ${file_path}/userdata
                echo $json
                echo "创建失败"
            else
-               echo $json
                echo "创建中，请稍等！"
                cheek_ip_do
            fi
