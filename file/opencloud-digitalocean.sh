@@ -180,6 +180,7 @@ sudo service sshd restart;" > ${file_path}/userdata
                echo $json
                echo "创建失败"
            else
+               echo $json
                echo "创建中，请稍等！"
                cheek_ip_do
            fi
