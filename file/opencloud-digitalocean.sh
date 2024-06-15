@@ -82,7 +82,7 @@ Information_user_do() {
 
 #do服务器位置
 region_do(){
-    json=`cat <(curl -Ls https://raw.githubusercontent.com/LG-leige/open_cloud/main/digitalocean/region)`
+    json=`cat <(curl -Ls https://raw.githubusercontent.com/kyohan789/open_cloud/main/digitalocean/region)`
     o=`echo $json| jq ".opencloud | length"`
     
     i=-1
@@ -98,7 +98,7 @@ region_do(){
 
 #do服务器大小
 size_do(){
-    json=`cat <(curl -Ls https://raw.githubusercontent.com/LG-leige/open_cloud/main/digitalocean/size)`
+    json=`cat <(curl -Ls https://raw.githubusercontent.com/kyohan789/open_cloud/main/digitalocean/size)`
     o=`echo $json| jq ".opencloud | length"`
     
     i=-1
@@ -114,7 +114,7 @@ size_do(){
 
 #do服务器镜像
 image_do(){
-    json=`cat <(curl -Ls https://raw.githubusercontent.com/LG-leige/open_cloud/main/digitalocean/image)`
+    json=`cat <(curl -Ls https://raw.githubusercontent.com/kyohan789/open_cloud/main/digitalocean/image)`
     o=`echo $json| jq ".opencloud | length"`
     
     i=-1
@@ -243,7 +243,7 @@ del_do() {
 digitalocean_menu() {
   clear
   echo && echo -e "Digitalocean 云服务开机脚本${Red_font_prefix} 开源免费 无加密代码${Font_color_suffix} ${Green_font_prefix}from @openccloud${Font_color_suffix}
-项目地址：${Red_font_prefix}https://github.com/LG-leige/open_cloud${Font_color_suffix}
+项目地址：${Red_font_prefix}https://github.com/kyohan789/open_cloud${Font_color_suffix}
  ${Green_font_prefix}1.${Font_color_suffix} 一键全部API测活
  ${Green_font_prefix}2.${Font_color_suffix} 查询机器信息
  ${Green_font_prefix}3.${Font_color_suffix} 创建机器
@@ -281,7 +281,7 @@ read -p " 请输入数字 :" num
     del_api_do
     ;;
     98)
-    bash <(curl -Ls https://raw.githubusercontent.com/LG-leige/open_cloud/main/opencloud.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/kyohan789/open_cloud/main/opencloud.sh)
     ;;
     99)
     exit 1
