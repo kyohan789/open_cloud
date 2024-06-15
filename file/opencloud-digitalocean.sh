@@ -172,6 +172,7 @@ sudo service sshd restart;" > ${file_path}/userdata
                 "user_data":"'"$(cat ${file_path}/userdata)"'"
              }' \
              https://api.digitalocean.com/v2/droplets`
+            echo $json
             echo $(cat ${file_path}/userdata)
             rm -rf ${file_path}/userdata
            var1=`echo $json | jq -r '.droplet.id'`
