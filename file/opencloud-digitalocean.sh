@@ -173,6 +173,7 @@ sudo service sshd restart;" > ${file_path}/userdata
              }' \
              https://api.digitalocean.com/v2/droplets`
             rm -rf ${file_path}/userdata
+            echo $json
            var1=`echo $json | jq -r '.droplet.id'`
            echo ""
            if [[ $var1 == null ]];
